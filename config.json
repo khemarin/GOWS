@@ -1,0 +1,20 @@
+{
+	"main" : {
+		"script" : "main.js",
+		"style"  : "style.css",
+		"compiled_coffee" : "coffee.js"
+	},
+	"source" : {
+		"script" : ["src/scripts/**/*.js", "src/scripts/**/*.coffee"],
+		"stylus" : "src/stylus/**/*.styl",
+		"sprites": "src/sprites/*.png",
+		"html"   : "src/*.html"
+	},
+	"dest" : {
+		"script" : "js",
+		"style"  : "css",
+		"sprite" : "imgs",
+		"bower"  : "lib",
+		"html"   : "./"
+	}
+}

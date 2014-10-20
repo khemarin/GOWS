@@ -1,0 +1,30 @@
+{
+  "name": "gulp-bower-stylus-minify",
+  "version": "0.0.1",
+  "description": "Gulp work flow which bundle bower components, minify scripts, css and html, and compile stylus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies" : {
+  	"gulp-concat" : "2.4.1",
+  	"gulp-bower-files" : "0.2.7",
+  	"gulp.spritesmith" : "1.4.0",
+  	"gulp-minify-html" : "0.1.6",
+  	"gulp" : "3.8.8",
+  	"nib"  : "1.0.4",
+  	"gulp-coffee" : "2.2.0",
+  	"gulp-if" : "1.2.5",
+  	"component-props" : "1.1.1"
+  },
+  "devDependencies" : {
+  	"gulp-stylus" : "1.3.3",
+  	"gulp-minify-css" : "0.3.11",
+  	"gulp-uglify" : "1.0.1",
+  	"gulp-imagemin" : "1.1.0",
+  	"imagemin-optipng" : "2.0.1",
+  	"imagemin" : "2.0.1"
+  },
+  "author": "Khemarin",
+  "license": "MIT"
+}
