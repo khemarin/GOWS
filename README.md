@@ -7,6 +7,6 @@ How to install
 ---
 
 1. Checkout 
-2. Run ```sh npm install ```
+2. Run ``` npm install ```
 3. Use bower.json for bower components
-4. Run ```sh gulp ```
+4. Run ``` gulp ```
