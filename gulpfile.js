@@ -4,12 +4,15 @@ var nib = require('nib');
 var concat = require('gulp-concat');
 var minifyCSS = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
-var gulpBowerFiles = require('gulp-bower-files');
+var mainBowerFiles = require('main-bower-files');
 var spritesmith = require('gulp.spritesmith');
 var imagemin = require('gulp-imagemin');
 var minifyHTML = require('gulp-minify-html');
 var coffee  = require('gulp-coffee');
 var gulpif = require('gulp-if');
+var gulpFilter = require('gulp-filter');
+var rename = require('gulp-rename');
+var flatten = require('gulp-flatten');
 
 /*--- CONFIG ---*/
 var config = require('./config.json');
@@ -41,7 +44,30 @@ gulp.task('scripts', ['coffee'], function () {
 
 /*--- BUNDLE BOWER ---*/
 gulp.task("bower-files", function(){
-    gulpBowerFiles().pipe(gulp.dest(config.dest.bower));
+    var jsFilter = gulpFilter('**/*.js', '!**/*.min.js');
+    var cssFilter = gulpFilter('**/*.css', '!**/*.min.css');
+    var fontFilter = gulpFilter(['**/*.eot', '**/*.woff', '**/*.svg', '**/*.ttf', '**/*.otf']);
+    
+    return gulp.src(mainBowerFiles())
+
+    // grab vendor js files from bower_components, minify and push in dest
+    .pipe(jsFilter)
+    .pipe(gulp.dest(config.dest.bower + '/js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(config.dest.bower + '/js'))
+    .pipe(jsFilter.restore())
+
+    // grab vendor css files from bower_components, minify and push in dest
+    .pipe(cssFilter)
+    .pipe(gulp.dest(config.dest.bower + '/css'))
+    .pipe(minifyCSS())
+    .pipe(gulp.dest(config.dest.bower + '/css'))
+    .pipe(cssFilter.restore())
+
+    // grab vendor font files from bower_components and push in dest 
+    .pipe(fontFilter)
+    .pipe(flatten())
+    .pipe(gulp.dest(config.dest.bower + '/fonts'))
 });
 
 /*--- IMAGES ---*/
