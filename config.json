@@ -15,7 +15,7 @@
 		"script" : "js",
 		"style"  : "css",
 		"sprite" : "imgs",
-		"bower"  : "lib",
+		"bower"  : "./lib",
 		"html"   : "./"
 	}
 }
