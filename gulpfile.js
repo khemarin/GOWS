@@ -33,8 +33,7 @@ gulp.task('coffee', function () {
 
 /*--- SCRIPTS ---*/
 gulp.task('scripts', ['coffee'], function () {
-  gulp.src(config.source.scripts)
-  	.pipe(coffee())
+  gulp.src(config.source.script)
     .pipe(concat(config.main.script))
     .pipe(uglify())
     .pipe(gulp.dest(config.dest.script));
