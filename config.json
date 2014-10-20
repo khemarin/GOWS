@@ -5,7 +5,8 @@
 		"compiled_coffee" : "coffee.js"
 	},
 	"source" : {
-		"script" : ["src/scripts/**/*.js", "src/scripts/**/*.coffee"],
+		"script" : "src/scripts/**/*.js",
+		"coffee" : "src/scripts/**/*.coffee",
 		"stylus" : "src/stylus/**/*.styl",
 		"sprites": "src/sprites/*.png",
 		"html"   : "src/*.html"
